@@ -1,19 +1,23 @@
 //
-//  ContentView.swift
+//  DummyView.swift
 //  arkivmc3
 //
-//  Created by Joshua on 24/08/23.
+//  Created by Muhammad Athif on 25/08/23.
 //
 
 import SwiftUI
-import Foundation
 
-struct ContentView: View {
+struct DummyView: View {
     @State private var hargaRumah:Double = 0
     @State private var dp:Double = 0
     @State private var sukuBunga: Double = 1
     @State private var tahun: Double = 0
     @State private var totalCicilanKpr: Double = 0
+    
+    @State private var luasTanah: Double = 0
+    @State private var hargaTanah: Double = 0
+    let hargaKonstruksi:Double = 3000000
+    
     
     let numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -24,25 +28,41 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Harga rumah")
-            TextField("Harga Rumah", value: $hargaRumah, formatter: numberFormatter)
-                .keyboardType(.decimalPad)
-                .padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 100)
-                        .stroke(Color.blue, lineWidth: 1)
-                )
-                .padding()
-            Text("Down Payment")
-            TextField("Down Payment", value: $dp, formatter: numberFormatter)
-                .keyboardType(.decimalPad)
-                .padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 100)
-                        .stroke(Color.blue, lineWidth: 1)
-                )
-                .padding()
-
+            Group{
+                Text("Luas Tanah (m^2)")
+                TextField("Luas Tanah", value: $luasTanah, formatter: numberFormatter)
+                    .keyboardType(.decimalPad)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.blue, lineWidth: 1)
+                    )
+                    .padding()
+                    .onSubmit {
+                        hargaRumah = self.calculateHousePrice(lokasi: "Meruya Selatan, Kembangan, Jakbar", hargaKonstruksi: hargaKonstruksi, luasTanah: luasTanah)
+                    }
+                Text("Harga rumah")
+                TextField("Harga Rumah", value: $hargaRumah, formatter: numberFormatter)
+                    .disabled(true)
+                    .keyboardType(.decimalPad)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.blue, lineWidth: 1)
+                    )
+                    .padding()
+                Text("Down Payment")
+                TextField("Down Payment", value: $dp, formatter: numberFormatter)
+                    .keyboardType(.decimalPad)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.blue, lineWidth: 1)
+                    )
+                    .padding()
+                
+            }
+            
             Slider(value: $sukuBunga, in: 1...15, step: 0.1)
                 .padding()
             Text("Suku Bunga: \(sukuBunga, specifier: "%.2f") %")
@@ -75,7 +95,7 @@ struct ContentView: View {
                     totalCicilanKpr = mortages + initialLoans
                     print("sdada")
                 }
-              
+                
             }) {
                 Text("Calculate")
             }.buttonStyle(.bordered)
@@ -83,12 +103,16 @@ struct ContentView: View {
             Text("\(totalCicilanKpr )")
             
         }
+        .onAppear {
+            //            hargaRumah = self.calculateHousePrice(lokasi: "Meruya Selatan, Kembangan, Jakbar", hargaKonstruksi: hargaKonstruksi, luasTanah: luasTanah)
+        }
         .padding()
     }
+    
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DummyView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DummyView()
     }
 }
