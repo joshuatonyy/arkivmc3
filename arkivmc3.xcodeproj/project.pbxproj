@@ -13,6 +13,7 @@
 		42233E762A971A2D00A29B0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42233E752A971A2D00A29B0D /* Preview Assets.xcassets */; };
 		42233E9D2A97FAE200A29B0D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42233E9C2A97FAE200A29B0D /* MapView.swift */; };
 		42233E9F2A97FB9B00A29B0D /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42233E9E2A97FB9B00A29B0D /* ModalView.swift */; };
+		42233EA12A98102500A29B0D /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42233EA02A98102500A29B0D /* CalculatorView.swift */; };
 		78D218D32A97E6E000CD5808 /* extensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D218D22A97E6E000CD5808 /* extensionView.swift */; };
 		78D218D52A97E76D00CD5808 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D218D42A97E76D00CD5808 /* DummyView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		42233E752A971A2D00A29B0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42233E9C2A97FAE200A29B0D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		42233E9E2A97FB9B00A29B0D /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		42233EA02A98102500A29B0D /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		78D218D22A97E6E000CD5808 /* extensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionView.swift; sourceTree = "<group>"; };
 		78D218D42A97E76D00CD5808 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 				78D218D22A97E6E000CD5808 /* extensionView.swift */,
 				42233E9C2A97FAE200A29B0D /* MapView.swift */,
 				42233E9E2A97FB9B00A29B0D /* ModalView.swift */,
+				42233EA02A98102500A29B0D /* CalculatorView.swift */,
 			);
 			path = arkivmc3;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42233E9F2A97FB9B00A29B0D /* ModalView.swift in Sources */,
+				42233EA12A98102500A29B0D /* CalculatorView.swift in Sources */,
 				78D218D32A97E6E000CD5808 /* extensionView.swift in Sources */,
 				78D218D52A97E76D00CD5808 /* DummyView.swift in Sources */,
 				42233E9D2A97FAE200A29B0D /* MapView.swift in Sources */,

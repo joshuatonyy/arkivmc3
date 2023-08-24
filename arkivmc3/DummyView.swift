@@ -17,6 +17,10 @@ struct DummyView: View {
     @State private var luasTanah: Double = 0
     @State private var hargaTanah: Double = 0
     let hargaKonstruksi:Double = 3000000
+    var lokasi:String
+    var hargaTanahString: String
+    
+    
     
     
     let numberFormatter: NumberFormatter = {
@@ -28,6 +32,9 @@ struct DummyView: View {
     
     var body: some View {
         VStack {
+            Text("Daerah: \(lokasi)")
+            Text("Harga per m^2: \(hargaTanahString)")
+            Spacer()
             Group{
                 Text("Luas Tanah (m^2)")
                 TextField("Luas Tanah", value: $luasTanah, formatter: numberFormatter)
@@ -93,14 +100,13 @@ struct DummyView: View {
                     print("slider \(sukuBunga)")
                     
                     totalCicilanKpr = mortages + initialLoans
-                    print("sdada")
                 }
                 
             }) {
                 Text("Calculate")
             }.buttonStyle(.bordered)
             
-            Text("\(totalCicilanKpr )")
+            Text("\(totalCicilanKpr, specifier: "%.0f" )")
             
         }
         .onAppear {
@@ -113,6 +119,6 @@ struct DummyView: View {
 
 struct DummyView_Previews: PreviewProvider {
     static var previews: some View {
-        DummyView()
+        DummyView(lokasi: "Cipedak, Jagakarsa, Jaksel", hargaTanahString: "6,7 juta")
     }
 }

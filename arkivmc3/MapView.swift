@@ -46,6 +46,8 @@ struct MapView: View {
     private let maxScale = 5.0
     @State private var showingSheet = false
     @State private var daerahPilih = 0
+    @State private var kalkulatorShow = false
+    @State private var namaDaerah = ""
     
     var magnification: some Gesture{
         MagnificationGesture()
@@ -70,10 +72,10 @@ struct MapView: View {
                 .position(location)
                 .scaleEffect(scale)
                 .onTapGesture {
-                    if showingSheet == false {
                         daerahPilih = 1
+                        namaDaerah = "Meruya Selatan, Kembangan, Jakbar"
                         showingSheet = true
-                    }
+                        
                 }
             Rectangle()
                 .fill(Color.white.opacity(0.001))
@@ -83,6 +85,7 @@ struct MapView: View {
                 .scaleEffect(scale)
                 .onTapGesture {
                     if showingSheet == false {
+                        namaDaerah = "Pulo Gebang, Cakung, Jaktim"
                         daerahPilih = 3
                         showingSheet = true
                     }
@@ -95,12 +98,20 @@ struct MapView: View {
             location = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2)
         }
         .sheet(isPresented: $showingSheet){
-            if daerahPilih == 1 {
-                ModalView(namaDaerah: "Meruya Selatan", namaDaerah2: "Kembangan, Jakbar", hargaTanah: "6,9 juta")
+            if daerahPilih == 0 {
+                DummyView(lokasi: "Meruya Selatan, Kembangan, Jakbar", hargaTanahString: "6,9 juta")
+            }
+            else if daerahPilih == 1 {
+                DummyView(lokasi: namaDaerah, hargaTanahString: "6,9 juta")
             }
             else if daerahPilih == 3{
-                ModalView(namaDaerah: "Pulo Gebang", namaDaerah2: "Cakung, Jaktim", hargaTanah: "5,1 juta")
+                DummyView(lokasi: namaDaerah, hargaTanahString: "5,1 juta")
             }
+        }
+        .sheet(isPresented: $kalkulatorShow){
+            DummyView(lokasi: namaDaerah, hargaTanahString: "6,9 juta")
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.hidden)
         }
     }
     
